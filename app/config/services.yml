@@ -1,0 +1,33 @@
+# Learn more about services, parameters and containers at
+# https://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+
+services:
+    #service_name:
+    #    class: AppBundle\Directory\ClassName
+    #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+
+    app.admin.user:
+          class: AppBundle\Admin\UserAdmin
+          arguments: [~, AppBundle\Entity\User, SonataAdminBundle:CRUD]
+          tags:
+              - {name: sonata.admin, manager_type: orm, group: User, label: User, show_in_dashboard: true }
+
+    app.admin.section:
+          class: AppBundle\Admin\SectionAdmin
+          arguments: [~, AppBundle\Entity\Section, SonataAdminBundle:CRUD]
+          tags:
+              - {name: sonata.admin, manager_type: orm, group: Menu, label: Section, show_in_dashboard: true }
+
+    app.admin.tavern:
+          class: AppBundle\Admin\TavernAdmin
+          arguments: [~, AppBundle\Entity\Tavern, SonataAdminBundle:CRUD]
+          tags:
+              - {name: sonata.admin, manager_type: orm, group: Menu, label: Tavern, show_in_dashboard: true }
+
+    app.admin.electrical.review:
+          class: AppBundle\Admin\ElectricalReviewAdmin
+          arguments: [~, AppBundle\Entity\ElectricalReview, SonataAdminBundle:CRUD]
+          tags:
+              - {name: sonata.admin, manager_type: orm, group: Menu, label: ElectricalReview, show_in_dashboard: true }
