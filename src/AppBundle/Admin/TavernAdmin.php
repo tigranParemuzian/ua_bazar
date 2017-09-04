@@ -35,7 +35,7 @@ class TavernAdmin extends Admin
                 'description' => 'Settings create part'
             ))
             ->add('name', 'text', ['required' => false])
-            ->add('mName', 'text', ['required' => false])
+            ->add('mName', 'text', ['required' => false, 'label'=>'Matket Name'])
             ->add('number', 'text', ['required' => true])
             ->add('section')
             ->end();
@@ -50,7 +50,7 @@ class TavernAdmin extends Admin
         $list
             ->add('id')
             ->addIdentifier('name')
-            ->addIdentifier('mName')
+            ->addIdentifier('mName', null, ['label'=>'Matket Name', 'editable'=>true])
             ->addIdentifier('number')
             ->add('section')
             ->add('_action', 'actions',
@@ -69,7 +69,7 @@ class TavernAdmin extends Admin
         $filter
             ->add('id')
             ->add('name')
-            ->add('mName')
+            ->add('mName', null, ['label'=>'Matket Name', 'editable'=>true])
             ->add('number')
             ->add('section')
         ;
@@ -83,7 +83,7 @@ class TavernAdmin extends Admin
         $show
             ->add('id')
             ->add('name')
-            ->add('mName')
+            ->add('mName', null, ['label'=>'Matket Name', 'editable'=>true])
             ->add('number')
             ->add('section')
         ;
