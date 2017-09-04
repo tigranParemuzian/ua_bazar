@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Tavern
@@ -24,9 +25,16 @@ class Tavern
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="m_name", type="string", length=255, name="true")
+     */
+    private $mName;
 
     /**
      *
@@ -41,6 +49,13 @@ class Tavern
      * @ORM\JoinColumn(name="section_id", referencedColumnName="id")
      */
     private $section;
+
+    /**
+     * @var
+     * @ORM\Column(name="number", type="float")
+     * @Assert\NotNull(message="number can`t be null")
+     */
+    private $number;
 
 
     public function __toString()
@@ -146,5 +161,37 @@ class Tavern
     public function getSection()
     {
         return $this->section;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMName(): string
+    {
+        return $this->mName;
+    }
+
+    /**
+     * @param string $mName
+     */
+    public function setMName(string $mName)
+    {
+        $this->mName = $mName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
+     * @param mixed $number
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
     }
 }

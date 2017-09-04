@@ -34,7 +34,9 @@ class TavernAdmin extends Admin
                 'box-class' => 'box box-solid box-danger',
                 'description' => 'Settings create part'
             ))
-            ->add('name', 'text', ['required' => true])
+            ->add('name', 'text', ['required' => false])
+            ->add('mName', 'text', ['required' => false])
+            ->add('number', 'text', ['required' => true])
             ->add('section')
             ->end();
 
@@ -48,6 +50,8 @@ class TavernAdmin extends Admin
         $list
             ->add('id')
             ->addIdentifier('name')
+            ->addIdentifier('mName')
+            ->addIdentifier('number')
             ->add('section')
             ->add('_action', 'actions',
                 array('actions' =>
@@ -65,6 +69,8 @@ class TavernAdmin extends Admin
         $filter
             ->add('id')
             ->add('name')
+            ->add('mName')
+            ->add('number')
             ->add('section')
         ;
     }
@@ -77,6 +83,8 @@ class TavernAdmin extends Admin
         $show
             ->add('id')
             ->add('name')
+            ->add('mName')
+            ->add('number')
             ->add('section')
         ;
     }
