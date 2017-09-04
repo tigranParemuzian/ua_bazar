@@ -33,7 +33,7 @@ class Tavern
     /**
      * @var string
      *
-     * @ORM\Column(name="m_name", type="string", length=255, name="true")
+     * @ORM\Column(name="m_name", type="string", length=255, nullable=true)
      */
     private $mName;
 
@@ -167,7 +167,7 @@ class Tavern
     /**
      * @return string
      */
-    public function getMName(): string
+    public function getMName()
     {
         return $this->mName;
     }
